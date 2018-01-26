@@ -1,6 +1,6 @@
 {
   "name": "@thisissoon/angular-masonry",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0",
   "license": "MIT",
   "private": false,
   "description": "A simple, lightweight library to use Masonry in Angular",
