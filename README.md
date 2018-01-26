@@ -6,6 +6,117 @@
 
 This project was generated with [Angular CLI][angular-cli] version 1.6.6.
 
+A simple, lightweight library to use [Masonry][masonry] in [Angular][angular]
+
+This is a simple library for [Angular][angular], implemented in the [Angular Package Format v5.0](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit#heading=h.k0mh3o8u5hx).
+
+## Install
+
+### via NPM
+
+`npm i @thisissoon/angular-masonry --save`
+
+### via Yarn
+
+`yarn add @thisissoon/angular-masonry`
+
+`app.module.ts`
+```ts
+import { MasonryModule } from '@thisissoon/angular-masonry';
+
+@NgModule({
+  imports: [
+    MasonryModule.forRoot(window['Masonry'])
+  ]
+})
+export class AppModule { }
+```
+
+#### Universal app (only needed if using platform-server)
+`app.server.module.ts`
+```ts
+import { MasonryModule } from '@thisissoon/angular-masonry';
+
+@NgModule({
+  imports: [
+    // no need to provide window['Masonry'] here as
+    // a mock implemention is provided by default
+    MasonryModule.forRoot()
+  ]
+})
+export class AppServerModule { }
+```
+
+## Example
+
+A full working example can be found in the [src/app](src/app) folder.
+
+### `app.component.ts`
+
+```ts
+export class AppComponent implements AfterViewInit, OnDestroy {
+
+  @ViewChild('grid')
+  public grid: ElementRef;
+
+  public masonryInstance: MasonryInstance;
+
+  public cards = cards;
+
+  constructor(@Inject(Masonry) public masonry) { }
+
+  ngAfterViewInit() {
+    const options: MasonryOptions = {
+      itemSelector: '.card',
+      columnWidth: '.card',
+      gutter: 20,
+      fitWidth: true
+    };
+    this.masonryInstance = new this.masonry(this.grid.nativeElement, options);
+  }
+
+  layout() {
+    this.masonryInstance.layout();
+  }
+
+  ngOnDestroy() {
+    this.masonryInstance.destroy();
+  }
+}
+```
+
+### `app.component.css`
+Styling is just an example
+```css
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.card {
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: 18rem;
+}
+```
+
+### `app.component.html`
+```html
+<div class="grid" #grid>
+  <div class="card" *ngFor="let card of cards">
+    <div class="card-body">
+      <h5 class="card-title">{{ card.title }}</h5>
+      <p class="card-text">{{ card.text }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -48,5 +159,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [standard-version]:https://github.com/conventional-changelog/standard-version
 [Karma]:https://karma-runner.github.io
 [Protractor]:http://www.protractortest.org/
+[angular]: https://angular.io/
 [angular-cli]:https://github.com/angular/angular-cli
 [angular-cli-readme]:https://github.com/angular/angular-cli/blob/master/README.md
+[masonry]:https://masonry.desandro.com/

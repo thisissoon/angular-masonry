@@ -5,10 +5,19 @@ describe('angular-masonry App', () => {
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
   });
 
-  it('should display welcome message', () => {
+  it('should contain cards', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to sn!');
+    expect(page.getCardCount()).toEqual(10);
+  });
+
+  it('should have applied masonry styles to grid', () => {
+    expect(page.isMasonryAppliedToGrid()).toBeTruthy();
+  });
+
+  it('should have applied masonry styles to card', () => {
+    expect(page.isMasonryAppliedToCards()).toBeTruthy();
   });
 });
