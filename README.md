@@ -49,7 +49,7 @@ export class AppServerModule { }
 
 ## Example
 
-A full working example can be found in the [src/app](src/app) folder.
+A full working example can be found in the [src/app](https://github.com/thisissoon/angular-masonry/tree/master/src/app) folder.
 
 ### `app.component.ts`
 

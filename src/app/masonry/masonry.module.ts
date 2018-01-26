@@ -12,8 +12,6 @@ const defaultProviders = [
  *
  * {@link https://masonry.desandro.com/}
  *
- * @export
- * @class MasonryModule
  */
 @NgModule()
 export class MasonryModule {
@@ -22,9 +20,6 @@ export class MasonryModule {
    * are only provided once but allows the module to still be imported
    * into other modules without reproviding services.
    *
-   * @static
-   * @param {Provider[]} [providers=defaultProviders]
-   * @returns {ModuleWithProviders}
    * @memberof MasonryModule
    */
   public static forRoot(providers: Provider[] = defaultProviders): ModuleWithProviders {

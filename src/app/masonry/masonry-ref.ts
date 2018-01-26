@@ -4,11 +4,6 @@ import { MasonryInstance } from './masonry-instance.model';
 /**
  * An implemenation of the masonry library to be used
  * as a dummy when running on a server
- *
- * @export
- * @param {(string | HTMLElement)} element
- * @param {MasonryOptions} options
- * @returns {MasonryInstance}
  */
 export function MasonryRef(
   element: string | HTMLElement,
