@@ -17,4 +17,4 @@ script:
   - npm run lint
   - npm run test -- --no-progress --code-coverage --single-run
   - npm run e2e -- --no-progress
-  # - npm run coverage
+  - npm run coverage
