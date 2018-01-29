@@ -14,22 +14,35 @@ This is a simple library for [Angular][angular], implemented in the [Angular Pac
 
 ### via NPM
 
-`npm i @thisissoon/angular-masonry --save`
+`npm i @thisissoon/angular-masonry masonry-layout --save`
 
 ### via Yarn
 
-`yarn add @thisissoon/angular-masonry`
+`yarn add @thisissoon/angular-masonry masonry-layout`
 
 `app.module.ts`
 ```ts
 import { MasonryModule } from '@thisissoon/angular-masonry';
 
+const masonryProviders = [
+  { provide: Masonry, useFactory: () => window['Masonry'] }
+];
+
 @NgModule({
   imports: [
-    MasonryModule.forRoot(window['Masonry'])
+    MasonryModule.forRoot(masonryProviders)
   ]
 })
 export class AppModule { }
+```
+
+`.angular-cli.json`
+
+Add the Masonry library javascript to your angular cli config
+```ts
+"scripts": [
+  "../node_modules/masonry-layout/dist/masonry.pkgd.js"
+],
 ```
 
 #### Universal app (only needed if using platform-server)
