@@ -36,7 +36,7 @@ const masonryProviders = [
 export class AppModule { }
 ```
 
-`.angular-cli.json`
+`angular.json`
 
 Add the Masonry library javascript to your angular cli config
 ```ts
