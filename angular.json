@@ -25,7 +25,8 @@
             ],
             "scripts": [
               "node_modules/masonry-layout/dist/masonry.pkgd.js"
-            ]
+            ],
+            "progress": false
           },
           "configurations": {
             "production": {
@@ -71,6 +72,10 @@
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
+            "progress": false,
+            "codeCoverageExclude": [
+              "src/app/masonry/masonry-ref.ts"
+            ],
             "scripts": [
               "node_modules/masonry-layout/dist/masonry.pkgd.js"
             ],
