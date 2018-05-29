@@ -17,11 +17,11 @@ describe('AppComponent', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [
-          MasonryModule.forRoot([{provide: Masonry, useFactory: () => window['Masonry']}])
+          MasonryModule.forRoot([
+            { provide: Masonry, useFactory: () => window['Masonry'] }
+          ])
         ],
-        declarations: [
-          AppComponent
-        ],
+        declarations: [AppComponent]
       }).compileComponents();
     }));
 
@@ -37,15 +37,22 @@ describe('AppComponent', () => {
     }));
 
     it('should layout cards', async(() => {
-      expect(compiled.querySelector('.grid').getAttribute('style'))
-        .toContain('position: relative');
+      expect(compiled.querySelector('.grid').getAttribute('style')).toContain(
+        'position: relative'
+      );
 
-      const gridStyle = compiled.querySelectorAll('.grid').item(0).getAttribute('style');
+      const gridStyle = compiled
+        .querySelectorAll('.grid')
+        .item(0)
+        .getAttribute('style');
       expect(gridStyle).toContain('position: relative');
       expect(gridStyle).toContain('width:');
       expect(gridStyle).toContain('height:');
 
-      const cardStyle = compiled.querySelectorAll('.card').item(0).getAttribute('style');
+      const cardStyle = compiled
+        .querySelectorAll('.card')
+        .item(0)
+        .getAttribute('style');
       expect(cardStyle).toContain('position: absolute');
       expect(cardStyle).toContain('left:');
       expect(cardStyle).toContain('top:');
@@ -55,7 +62,12 @@ describe('AppComponent', () => {
       component.ngOnDestroy();
       fixture.detectChanges();
       expect(compiled.querySelector('.grid').getAttribute('style')).toBe('');
-      expect(compiled.querySelectorAll('.card').item(0).getAttribute('style')).toBe('');
+      expect(
+        compiled
+          .querySelectorAll('.card')
+          .item(0)
+          .getAttribute('style')
+      ).toBe('');
     }));
   });
 
@@ -71,17 +83,15 @@ describe('AppComponent', () => {
       mockMasonry = function() {
         return {
           layout: layoutSpy,
-          destroy: destroySpy,
+          destroy: destroySpy
         };
       };
 
       TestBed.configureTestingModule({
         imports: [
-          MasonryModule.forRoot([{provide: Masonry, useValue: mockMasonry}])
+          MasonryModule.forRoot([{ provide: Masonry, useValue: mockMasonry }])
         ],
-        declarations: [
-          AppComponent
-        ],
+        declarations: [AppComponent]
       }).compileComponents();
     }));
 
@@ -106,5 +116,4 @@ describe('AppComponent', () => {
       expect(destroySpy).toHaveBeenCalled();
     }));
   });
-
 });

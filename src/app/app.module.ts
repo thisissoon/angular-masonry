@@ -11,13 +11,8 @@ const masonryProviders = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    MasonryModule.forRoot(masonryProviders)
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, MasonryModule.forRoot(masonryProviders)],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

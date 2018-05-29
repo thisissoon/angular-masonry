@@ -1,6 +1,10 @@
 import {
-  Component, Inject, ViewChild,
-  ElementRef, AfterViewInit, OnDestroy
+  Component,
+  Inject,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy
 } from '@angular/core';
 
 import { Masonry } from './masonry/masonry-token';
@@ -14,15 +18,13 @@ import { cards } from './cards';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
-
-  @ViewChild('grid')
-  public grid: ElementRef;
+  @ViewChild('grid') public grid: ElementRef;
 
   public masonryInstance: MasonryInstance;
 
   public cards = cards;
 
-  constructor(@Inject(Masonry) public masonry) { }
+  constructor(@Inject(Masonry) public masonry) {}
 
   ngAfterViewInit() {
     const options: MasonryOptions = {

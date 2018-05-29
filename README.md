@@ -3,6 +3,7 @@
 [![Build Status][travis-badge]][travis]
 [![Coverage Status][coveralls-badge]][coveralls]
 [![Commitizen friendly][commitizen-badge]][commitizen]
+[![code style: prettier][prettier-badge]][prettier-badge-url]
 
 This project was generated with [Angular CLI][angular-cli] version 1.6.6.
 
@@ -21,6 +22,7 @@ This is a simple library for [Angular][angular], implemented in the [Angular Pac
 `yarn add @thisissoon/angular-masonry masonry-layout`
 
 `app.module.ts`
+
 ```ts
 import { MasonryModule } from '@thisissoon/angular-masonry';
 
@@ -29,16 +31,15 @@ const masonryProviders = [
 ];
 
 @NgModule({
-  imports: [
-    MasonryModule.forRoot(masonryProviders)
-  ]
+  imports: [MasonryModule.forRoot(masonryProviders)]
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 `angular.json`
 
 Add the Masonry library javascript to your angular cli config
+
 ```ts
 "scripts": [
   "../node_modules/masonry-layout/dist/masonry.pkgd.js"
@@ -46,7 +47,9 @@ Add the Masonry library javascript to your angular cli config
 ```
 
 #### Universal app (only needed if using platform-server)
+
 `app.server.module.ts`
+
 ```ts
 import { MasonryModule } from '@thisissoon/angular-masonry';
 
@@ -57,7 +60,7 @@ import { MasonryModule } from '@thisissoon/angular-masonry';
     MasonryModule.forRoot()
   ]
 })
-export class AppServerModule { }
+export class AppServerModule {}
 ```
 
 ## Example
@@ -68,15 +71,13 @@ A full working example can be found in the [src/app](https://github.com/thisisso
 
 ```ts
 export class AppComponent implements AfterViewInit, OnDestroy {
-
-  @ViewChild('grid')
-  public grid: ElementRef;
+  @ViewChild('grid') public grid: ElementRef;
 
   public masonryInstance: MasonryInstance;
 
   public cards = cards;
 
-  constructor(@Inject(Masonry) public masonry) { }
+  constructor(@Inject(Masonry) public masonry) {}
 
   ngAfterViewInit() {
     const options: MasonryOptions = {
@@ -99,7 +100,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 ```
 
 ### `app.component.css`
+
 Styling is just an example
+
 ```css
 :host {
   display: block;
@@ -118,6 +121,7 @@ Styling is just an example
 ```
 
 ### `app.component.html`
+
 ```html
 <div class="grid" #grid>
   <div class="card" *ngFor="let card of cards">
@@ -164,15 +168,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [travis]: https://travis-ci.org/thisissoon/angular-masonry
 [travis-badge]: https://travis-ci.org/thisissoon/angular-masonry.svg?branch=master
-[coveralls]:https://coveralls.io/github/thisissoon/angular-masonry?branch=master
-[coveralls-badge]:https://coveralls.io/repos/github/thisissoon/angular-masonry/badge.svg?branch=master
-[commitizen]:http://commitizen.github.io/cz-cli/
-[commitizen-badge]:https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
-[conventional-changelog]:https://github.com/conventional-changelog/conventional-changelog
-[standard-version]:https://github.com/conventional-changelog/standard-version
-[Karma]:https://karma-runner.github.io
-[Protractor]:http://www.protractortest.org/
+[coveralls]: https://coveralls.io/github/thisissoon/angular-masonry?branch=master
+[coveralls-badge]: https://coveralls.io/repos/github/thisissoon/angular-masonry/badge.svg?branch=master
+[commitizen]: http://commitizen.github.io/cz-cli/
+[commitizen-badge]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+[prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=shield
+[prettier-badge-url]: https://github.com/prettier/prettier
+[conventional-changelog]: https://github.com/conventional-changelog/conventional-changelog
+[standard-version]: https://github.com/conventional-changelog/standard-version
+[karma]: https://karma-runner.github.io
+[protractor]: http://www.protractortest.org/
 [angular]: https://angular.io/
-[angular-cli]:https://github.com/angular/angular-cli
-[angular-cli-readme]:https://github.com/angular/angular-cli/blob/master/README.md
-[masonry]:https://masonry.desandro.com/
+[angular-cli]: https://github.com/angular/angular-cli
+[angular-cli-readme]: https://github.com/angular/angular-cli/blob/master/README.md
+[masonry]: https://masonry.desandro.com/

@@ -3,9 +3,7 @@ import { NgModule, ModuleWithProviders, Provider } from '@angular/core';
 import { MasonryRef } from './masonry-ref';
 import { Masonry } from './masonry-token';
 
-const defaultProviders = [
-  { provide: Masonry, useValue: MasonryRef }
-];
+const defaultProviders = [{ provide: Masonry, useValue: MasonryRef }];
 
 /**
  * A simple lightweight module to use Masonry layout in Angular
@@ -22,7 +20,9 @@ export class MasonryModule {
    *
    * @memberof MasonryModule
    */
-  public static forRoot(providers: Provider[] = defaultProviders): ModuleWithProviders {
+  public static forRoot(
+    providers: Provider[] = defaultProviders
+  ): ModuleWithProviders {
     return {
       ngModule: MasonryModule,
       providers: providers

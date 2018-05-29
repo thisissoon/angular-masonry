@@ -2,7 +2,7 @@ export interface MasonryInstance {
   layout: (...args) => void;
   destroy: (...args) => void;
   stamp: (...args) => void;
-  unstamp: () =>  void;
+  unstamp: () => void;
   appended: (...args) => void;
   prepended: (...args) => void;
   addItems: (...args) => void;
