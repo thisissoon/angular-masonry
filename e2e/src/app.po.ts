@@ -10,7 +10,10 @@ export class AppPage {
   }
 
   getCardStyleAttr() {
-    return element.all(by.css('sn-root .card')).first().getAttribute('style');
+    return element
+      .all(by.css('sn-root .card'))
+      .first()
+      .getAttribute('style');
   }
 
   getGridStyleAttr() {
@@ -18,18 +21,20 @@ export class AppPage {
   }
 
   isMasonryAppliedToGrid() {
-    return this.getGridStyleAttr()
-      .then(style =>
+    return this.getGridStyleAttr().then(
+      style =>
         style.includes('position: relative') &&
         style.includes('width:') &&
-        style.includes('height:'));
+        style.includes('height:')
+    );
   }
 
   isMasonryAppliedToCards() {
-    return this.getCardStyleAttr()
-      .then(style =>
+    return this.getCardStyleAttr().then(
+      style =>
         style.includes('position: absolute') &&
         style.includes('top:') &&
-        style.includes('left:'));
+        style.includes('left:')
+    );
   }
 }
