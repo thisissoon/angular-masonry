@@ -41,7 +41,8 @@
     "postrelease": "npm run packagr"
   },
   "peerDependencies": {
-    "masonry-layout": ">=4.0.0 <5.0.0"
+    "masonry-layout": ">=4.0.0",
+    "@angular/core": ">=5.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
