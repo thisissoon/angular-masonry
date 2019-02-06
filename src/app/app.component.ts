@@ -4,7 +4,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 
 import { Masonry } from './masonry/masonry-token';
@@ -15,7 +15,7 @@ import { cards } from './cards';
 @Component({
   selector: 'sn-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
   @ViewChild('grid') public grid: ElementRef;
@@ -31,7 +31,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       itemSelector: '.card',
       columnWidth: '.card',
       gutter: 20,
-      fitWidth: true
+      fitWidth: true,
     };
     this.masonryInstance = new this.masonry(this.grid.nativeElement, options);
   }

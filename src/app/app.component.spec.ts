@@ -18,10 +18,10 @@ describe('AppComponent', () => {
       TestBed.configureTestingModule({
         imports: [
           MasonryModule.forRoot([
-            { provide: Masonry, useFactory: () => window['Masonry'] }
-          ])
+            { provide: Masonry, useFactory: () => window['Masonry'] },
+          ]),
         ],
-        declarations: [AppComponent]
+        declarations: [AppComponent],
       }).compileComponents();
     }));
 
@@ -38,7 +38,7 @@ describe('AppComponent', () => {
 
     it('should layout cards', async(() => {
       expect(compiled.querySelector('.grid').getAttribute('style')).toContain(
-        'position: relative'
+        'position: relative',
       );
 
       const gridStyle = compiled
@@ -66,7 +66,7 @@ describe('AppComponent', () => {
         compiled
           .querySelectorAll('.card')
           .item(0)
-          .getAttribute('style')
+          .getAttribute('style'),
       ).toBe('');
     }));
   });
@@ -83,15 +83,15 @@ describe('AppComponent', () => {
       mockMasonry = function() {
         return {
           layout: layoutSpy,
-          destroy: destroySpy
+          destroy: destroySpy,
         };
       };
 
       TestBed.configureTestingModule({
         imports: [
-          MasonryModule.forRoot([{ provide: Masonry, useValue: mockMasonry }])
+          MasonryModule.forRoot([{ provide: Masonry, useValue: mockMasonry }]),
         ],
-        declarations: [AppComponent]
+        declarations: [AppComponent],
       }).compileComponents();
     }));
 

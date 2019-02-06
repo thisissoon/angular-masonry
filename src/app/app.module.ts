@@ -7,12 +7,12 @@ import { Masonry } from './masonry/masonry-token';
 import { AppComponent } from './app.component';
 
 const masonryProviders = [
-  { provide: Masonry, useFactory: () => window['Masonry'] }
+  { provide: Masonry, useFactory: () => window['Masonry'] },
 ];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, MasonryModule.forRoot(masonryProviders)],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

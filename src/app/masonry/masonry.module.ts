@@ -21,11 +21,11 @@ export class MasonryModule {
    * @memberof MasonryModule
    */
   public static forRoot(
-    providers: Provider[] = defaultProviders
+    providers: Provider[] = defaultProviders,
   ): ModuleWithProviders {
     return {
       ngModule: MasonryModule,
-      providers: providers
+      providers: providers,
     };
   }
 }

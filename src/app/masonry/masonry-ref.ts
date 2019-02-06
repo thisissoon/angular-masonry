@@ -7,7 +7,7 @@ import { MasonryInstance } from './masonry-instance.model';
  */
 export function MasonryRef(
   element: string | HTMLElement,
-  options: MasonryOptions
+  options: MasonryOptions,
 ): MasonryInstance {
   return {
     layout: () => null,
@@ -22,6 +22,6 @@ export function MasonryRef(
     off: () => null,
     once: () => null,
     reloadItems: () => null,
-    getItemElements: () => null
+    getItemElements: () => null,
   };
 }
