@@ -25,11 +25,11 @@ This is a simple library for [Angular][angular], implemented in the [Angular Pac
 import { MasonryModule } from '@thisissoon/angular-masonry';
 
 const masonryProviders = [
-  { provide: Masonry, useFactory: () => window['Masonry'] }
+  { provide: Masonry, useFactory: () => window['Masonry'] },
 ];
 
 @NgModule({
-  imports: [MasonryModule.forRoot(masonryProviders)]
+  imports: [MasonryModule.forRoot(masonryProviders)],
 })
 export class AppModule {}
 ```
@@ -55,8 +55,8 @@ import { MasonryModule } from '@thisissoon/angular-masonry';
   imports: [
     // no need to provide window['Masonry'] here as
     // a mock implemention is provided by default
-    MasonryModule.forRoot()
-  ]
+    MasonryModule.forRoot(),
+  ],
 })
 export class AppServerModule {}
 ```
@@ -82,7 +82,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       itemSelector: '.card',
       columnWidth: '.card',
       gutter: 20,
-      fitWidth: true
+      fitWidth: true,
     };
     this.masonryInstance = new this.masonry(this.grid.nativeElement, options);
   }
@@ -164,8 +164,8 @@ Run `npm run release` to create a new release. This will use [Standard Version][
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README][angular-cli-readme].
 
-[travis]: https://travis-ci.org/thisissoon/angular-masonry
-[travis-badge]: https://travis-ci.org/thisissoon/angular-masonry.svg?branch=master
+[circle]: https://circleci.com/gh/thisissoon/angular-masonry
+[circle-badge]: https://circleci.com/gh/thisissoon/angular-masonry.svg?style=shield
 [coveralls]: https://coveralls.io/github/thisissoon/angular-masonry?branch=master
 [coveralls-badge]: https://coveralls.io/repos/github/thisissoon/angular-masonry/badge.svg?branch=master
 [commitizen]: http://commitizen.github.io/cz-cli/
