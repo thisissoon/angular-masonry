@@ -1,6 +1,6 @@
 # Angular Masonry
 
-[![Build Status][travis-badge]][travis]
+[![Build Status][circle-badge]][circle]
 [![Coverage Status][coveralls-badge]][coveralls]
 [![Commitizen friendly][commitizen-badge]][commitizen]
 [![code style: prettier][prettier-badge]][prettier-badge-url]
